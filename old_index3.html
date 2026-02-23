@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acadia United</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1a2e4a;
+      --blue:   #2c5282;
+      --gold:   #c8952a;
+      --light:  #f4f6f9;
+      --white:  #ffffff;
+      --text:   #2d3748;
+      --muted:  #718096;
+      --border: #cbd5e0;
+      --max:    1100px;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { color: var(--blue); }
+
+    /* ── Header / Logo bar ── */
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .logo-mark {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+    }
+
+    .logo-text h1 {
+      font-size: 1.75rem;
+      letter-spacing: 0.04em;
+      font-weight: bold;
+    }
+
+    .logo-text p {
+      font-size: 0.85rem;
+      color: #a0aec0;
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.1rem;
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: #a0aec0;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--white); }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--navy);
+    }
+
+    .hero-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: stretch;
+      min-height: 400px;
+    }
+
+    /* Left: text column */
+    .hero-text {
+      flex: 1;
+      padding: 3.5rem 2.5rem 3.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-text h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      color: var(--white);
+      line-height: 1.25;
+    }
+
+    .hero-text h2 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-text p.tagline {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      color: #cbd5e0;
+      font-family: Arial, Helvetica, sans-serif;
+      max-width: 460px;
+    }
+
+    .hero-text .cta {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 1.75rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .hero-text .cta:hover { background: #e0a830; }
+
+    /* Right: photo column */
+    .hero-photo {
+      flex: 0 0 45%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #142238;
+      border-left: 2px dashed #2d4e7a;
+    }
+
+    /*
+      TO ADD YOUR PHOTO:
+      Replace the .photo-placeholder div below with:
+        <img src="your-photo.jpg" alt="Acadia neighborhood" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />
+    */
+    .photo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.1rem;
+      padding: 2rem;
+      text-align: center;
+      user-select: none;
+    }
+
+    .photo-placeholder p {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      color: #3a5a8a;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.6;
+    }
+
+    .photo-placeholder p strong {
+      display: block;
+      color: #4a72a8;
+      font-size: 0.85rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ── Main content ── */
+    main {
+      max-width: var(--max);
+      margin: 3rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    section {
+      background: var(--white);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      padding: 2rem;
+    }
+
+    section h3 {
+      font-size: 1.2rem;
+      color: var(--navy);
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid var(--gold);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    section p, section li {
+      font-size: 0.975rem;
+      color: var(--text);
+    }
+
+    section ul {
+      padding-left: 1.25rem;
+    }
+
+    section li {
+      margin-bottom: 0.6rem;
+    }
+
+    /* ── Updates list ── */
+    .updates-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .updates-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .updates-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .update-date {
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.75rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.25rem;
+    }
+
+    .update-title {
+      font-weight: bold;
+      color: var(--navy);
+      font-size: 0.95rem;
+    }
+
+    .update-body {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    /* ── Take Action section ── */
+    .action-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .action-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      padding: 0.9rem 1rem;
+      background: var(--light);
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .action-icon {
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+      color: var(--gold);
+    }
+
+    .action-body { flex: 1; }
+
+    .action-body a {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      font-size: 0.9rem;
+      display: block;
+    }
+
+    .action-body span {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+      display: block;
+    }
+
+    /* ── Contact section ── */
+    .contact-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+      align-items: flex-start;
+    }
+
+    .contact-row:last-child { border-bottom: none; }
+
+    .contact-label {
+      flex-shrink: 0;
+      width: 72px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding-top: 0.15rem;
+    }
+
+    .contact-value { color: var(--text); }
+    .contact-value a { font-weight: bold; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--navy);
+      color: #718096;
+      text-align: center;
+      padding: 1.75rem 2rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-top: 3rem;
+    }
+
+    footer a { color: #a0aec0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 750px) {
+      header { flex-wrap: wrap; }
+      nav { margin-left: 0; width: 100%; }
+      .hero-inner { flex-direction: column; }
+      .hero-photo { flex: none; width: 100%; aspect-ratio: 4 / 3; border-left: none; border-top: 2px dashed #2d4e7a; }
+      main { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header>
+    <!-- SVG logo mark: house-and-shield motif -->
+    <svg class="logo-mark" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="30" cy="30" r="29" stroke="#c8952a" stroke-width="2"/>
+      <path d="M30 10 L46 18 L46 34 C46 43 30 52 30 52 C30 52 14 43 14 34 L14 18 Z"
+            fill="#2c5282" stroke="#c8952a" stroke-width="1.5"/>
+      <polygon points="30,20 22,27 22,38 38,38 38,27" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
+      <polygon points="30,16 20,25 40,25" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
+      <rect x="27" y="31" width="6" height="7" fill="#ffffff"/>
+    </svg>
+
+    <div class="logo-text">
+      <h1>Acadia United</h1>
+      <p>Parkcrest neighbors standing together</p>
+    </div>
+
+    <nav>
+      <a href="#our-concerns">Our Concerns</a>
+      <a href="#updates">Updates</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ── Hero: text left, photo right ── -->
+  <div class="hero">
+    <div class="hero-inner">
+
+      <!-- Left: hero text -->
+      <div class="hero-text">
+        <h2>Our neighborhood deserves<br><em>safety, not shortcuts.</em></h2>
+        <p class="tagline">
+          Acadia United is a coalition of residents committed to responsible
+          development that protects the people who call this community home.
+        </p>
+
+      </div>
+
+
+      <!-- <div class="hero-photo">
+        <div class="photo-placeholder">
+
+          <p>
+            <strong>Neighborhood Photo</strong>
+            Replace this with an &lt;img&gt; tag<br>
+            Any iPhone landscape photo works (4:3 ratio)<br>
+            e.g. 1200 &times; 900 px or the original full-res file
+          </p>
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+
+  <!-- ── Two-column body ── -->
+  <main>
+
+    <!-- Column 1: Our Concerns / Advocacy -->
+    <section id="our-concerns">
+      <h3>What We're Advocating For</h3>
+
+      <p>
+        A proposed development at <strong>117 N Gammon Rd</strong> raises
+        serious concerns that have not been adequately addressed by the developer
+        or by city officials. We are not opposed to thoughtful growth &mdash; we
+        are opposed to development that puts our neighbors at risk.
+      </p>
+
+      <p style="margin-top:1rem;"><strong>Our core concerns include:</strong></p>
+      <ul style="margin-top:0.5rem;">
+        <li>
+          <strong>Traffic and pedestrian safety</strong> &mdash; the proposed
+          access points and traffic volumes exceed what existing roads were
+          designed to handle, endangering residents on foot and bicycle.
+        </li>
+
+      </ul>
+
+      <p style="margin-top:1.25rem;">
+        We are asking the city to pause the approval process, commission
+        independent safety reviews, and hold a proper public hearing before
+        any permits are issued.
+      </p>
+    </section>
+
+    <!-- Column 2: Updates -->
+    <section id="updates">
+      <h3>Latest Updates</h3>
+
+      <ul class="updates-list">
+        <li>
+          <span class="update-date">26 February 2026</span>
+          <div class="update-title">Alder meeting</div>
+          <p class="update-body">
+            Alder meeting after 6:30 pm. Contact <a href="mailto:acadiaunited@gmail.com">acadiaunited@gmail.com</a> for more details. 
+          </p>
+        </li>
+
+        <li>
+          <span class="update-date">February 2026</span>
+          <div class="update-title">Acadia United launches community website</div>
+          <p class="update-body">
+            We've created this site to keep neighbors informed and to provide
+            a central place for resources and action steps. More updates to
+            follow soon.
+          </p>
+        </li>
+
+
+      </ul>
+    </section>
+
+
+    <!-- Column 2: Contact -->
+    <section id="contact">
+      <h3>Contact Us</h3>
+
+      <p style="margin-bottom:1.25rem; font-size:0.95rem;">
+        Questions, media inquiries, or want to get involved? Reach us below.
+      </p>
+
+      <div class="contact-rows">
+
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <div class="contact-value">
+
+            <a href="mailto:acadiaunited@gmail.com">acadiaunited@gmail.com</a><br>
+
+          </div>
+        </div>
+
+
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer>
+
+  </footer>
+
+</body>
+</html>
