@@ -187,7 +187,7 @@ nav a.nav-cta:hover {
   font-weight: 900;
   color: var(--white);
   line-height: 1.15;
-  max-width: 640px;
+  /* max-width: 640px; */
 }
 
 .hero-text h2 em {
