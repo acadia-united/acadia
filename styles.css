@@ -554,7 +554,7 @@ main {
 
 .contact-label {
   flex-shrink: 0;
-  width: 68px;
+  width: 90px;
   color: var(--muted);
   font-size: 0.72rem;
   font-weight: 700;
