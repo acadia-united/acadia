@@ -429,12 +429,12 @@ main {
   padding: 0;
 }
 
-.updates-list li {
+.updates-list > li {
   padding: 1.25rem 0;
   border-bottom: 1px solid var(--border);
 }
 
-.updates-list li:last-child {
+.updates-list > li:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
@@ -460,9 +460,40 @@ main {
 }
 
 .update-body {
-  font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.6;
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-top: 0.5rem;
+}
+
+.update-body p {
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 0.85rem;
+}
+
+.update-body p:last-child {
+  margin-bottom: 0;
+}
+
+.update-body ul,
+.update-body ol {
+  padding-left: 1.4rem;
+  margin-bottom: 0.85rem;
+}
+
+.update-body li {
+  margin-bottom: 0.4rem;
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.update-body ul ul,
+.update-body ol ul {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
 }
 
 .update-body a {
@@ -516,7 +547,7 @@ main {
   font-weight: 700;
   font-size: 0.92rem;
   color: var(--navy);
-  display: block;
+  display: inline-block;
   text-decoration: none;
 }
 

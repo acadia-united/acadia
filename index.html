@@ -8,31 +8,126 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* ── PAGE LAYOUT ── */
+    .page-inner {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .main-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      min-width: 0;
+    }
+
+    .sidebar-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* ── SIDEBAR CARD ── */
+    .sidebar-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .sidebar-card .card-header {
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.85rem;
+    }
+
+    /* Contact in sidebar */
+    .sidebar-contact-row {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-contact-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .sidebar-contact-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.35rem;
+    }
+
+    .sidebar-contact-value {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .sidebar-contact-value a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .sidebar-contact-value a:hover {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .sidebar-name-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .sidebar-name-list li {
+      font-size: 0.88rem;
+    }
+
+    .sidebar-name-list a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .sidebar-name-list a:hover {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 780px) {
+      .page-inner {
+        grid-template-columns: 1fr;
+        padding: 0 1.5rem;
+        margin: 2rem auto;
+      }
+    }
+
+  </style>
 </head>
 <body>
 
-  <!-- ── Announcement Bar ── -->
-  <!-- <div class="announce-bar">
-    📅 <strong>Upcoming:</strong> Alder meeting Feb 26 after 6:30 pm &ndash;
-    <a href="mailto:acadiaunited@gmail.com">email us</a> for details
-  </div> -->
-
   <!-- ── Header ── -->
   <header>
-    <!-- <svg class="logo-mark" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="30" cy="30" r="29" stroke="#c8952a" stroke-width="2"/>
-      <path d="M30 10 L46 18 L46 34 C46 43 30 52 30 52 C30 52 14 43 14 34 L14 18 Z"
-            fill="#2c5282" stroke="#c8952a" stroke-width="1.5"/>
-      <polygon points="30,20 22,27 22,38 38,38 38,27" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
-      <polygon points="30,16 20,25 40,25" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
-      <rect x="27" y="31" width="6" height="7" fill="#ffffff"/>
-    </svg> -->
-
     <div class="logo-text">
       <h1>Acadia United</h1>
       <p>Parkwood Hills neighbors standing together</p>
     </div>
-
     <nav>
       <a href="#our-concerns">Our Concerns</a>
       <a href="#updates">Updates</a>
@@ -42,218 +137,165 @@
 
   <!-- ── Hero ── -->
   <div class="hero">
-    <div class="hero-inner">
-
+    <div class="hero-inner" style="grid-template-columns: 1fr;">
       <div class="hero-text">
         <h2>Our neighborhood deserves<br><em>safety, not shortcuts.</em></h2>
         <p class="tagline">
           Acadia United is a coalition of Parkwood Hills residents committed to
-          responsible development that protects the people who call this
-          community home.
+          responsible development that protects the people who call this community home.
         </p>
-
       </div>
-
-      <!-- <div class="hero-photo">
-        <div class="hero-photo-placeholder">
-          <p>Neighborhood photo</p>
-        </div>
-      </div> -->
-
     </div>
   </div>
 
-  <!-- ── Urgency strip ── -->
-  <!-- <div class="urgency-strip">
-    <div class="urgency-inner">
-      <div class="urgency-icon">⚠️</div>
-      <div class="urgency-text">
-        <strong>Permit review is ongoing &ndash; your voice matters now.</strong>
-        <span>We are asking the city to pause approvals and commission independent safety reviews before any permits are issued.</span>
-      </div>
-      <div class="urgency-cta">
-        <a href="mailto:acadiaunited@gmail.com" class="btn btn-primary">Take Action</a>
-      </div>
-    </div>
-  </div> -->
+  <!-- ── Two-column body ── -->
+  <div class="page-inner">
 
-  <!-- ── Main content ── -->
-  <main>
+    <!-- Main column -->
+    <div class="main-col">
 
-    <!-- Our Concerns -->
-    <section id="our-concerns" class="card">
-      <div class="card-header">
-        <h3>What We're Advocating For</h3>
-      </div>
+      <!-- What We're Advocating For -->
+      <section id="our-concerns" class="card">
+        <div class="card-header">
+          <h3>What We're Advocating For</h3>
+        </div>
+        <p>
+          A proposed development at <strong>117 N Gammon Rd</strong> raises serious
+          concerns which must be addressed. We are not opposed to thoughtful growth &ndash; we are opposed
+          to development that puts our neighbors at risk.
+        </p>
+        <ul class="concern-list">
+          <li><strong>Traffic &amp; Pedestrian Safety</strong> &ndash; Proposed access point via Acadia Ct. would increase traffic volumes fivefold on Acadia Drive, endangering residents on foot and bicycle. Traffic from Acadia Drive empties out onto major pedestrian and bike junctions at Everglade and Colony Drives, used by community members and children commuting to three schools located blocks away.</li>
+          <li><strong>Scale and Neighborhood Fit</strong> &ndash; Because the development site sits at a significantly higher elevation than Acadia Drive, a 3-story structure will loom over existing single-family homes like a four to five story building. We request that the height &quot;step down&quot; to 1&ndash;2 stories or less on the side facing our residences to maintain consistency with our SR-C1 neighborhood.</li>
+          <li><strong>Density Reduction</strong> &ndash; The proposed 96 units are too dense for a site that must transition into a quiet, suburban residential area. We want the City to favor a smaller-scale project that prioritizes safety and character over maximum density.</li>
+        </ul>
+      </section>
 
-      <p>
-        A proposed development at <strong>117 N Gammon Rd</strong> raises serious
-        concerns which must be addressed. We are not opposed to thoughtful growth &ndash; we are opposed
-        to development that puts our neighbors at risk.
-      </p>
+      <!-- Take Action -->
+      <section class="card">
+        <div class="card-header">
+          <h3>Take Action</h3>
+        </div>
+        <ul class="action-list">
+          <li class="action-item">
+            <div class="action-num">1</div>
+            <div class="action-body">
+              <a href="mailto:acadiaunited@gmail.com">Join the Mailing List</a>
+              <span>Contact us to get email notification of future meetings and updates from our listserv. The email list is private and only used for community updates.</span>
+            </div>
+          </li>
+          <li class="action-item">
+            <div class="action-num">2</div>
+            <div class="action-body">
+              <a href="#updates">Sign the Petition</a>
+              <span>If we missed you or you were not able to attend the meeting. The following times are set aside for you to stop by Ann's house at 209 Acadia: Thursday 4:00&ndash;7pm and Saturday 10&ndash;12. If these times don't work, please contact her and set up another time: <a href="mailto:aewilson235@gmail.com">aewilson235@gmail.com</a>.
+            <br/>
+            <a href="./docs/Petition.pdf">View the petition</a>
+            
+            </span>
+            </div>
+          </li>
+          <li class="action-item">
+            <div class="action-num">3</div>
+            <div class="action-body">
+              <a href="#updates">Contact the Planning Commission and our Alder</a>
+              <span>Email the <a href="mailto:pccomments@cityofmadison.com">Plan Commission</a> and <a href="mailto:district19@cityofmadison.com">our Alder</a>. Make sure your subject includes &ldquo;117 N Gammon Project.&rdquo; 
+                <br/>
+                <a href="./docs/SampleEmail.docx">View a sample email template</a></span>
+            </div>
+          </li>
+          <li class="action-item">
+            <div class="action-num">4</div>
+            <div class="action-body">
+              <a href="./docs/Flyer_03_05_2026.pdf" target="_blank">Spread the Word</a>
+              <span>Tell your neighbors. The more voices we have, the more the city listens. <br/><a href="./docs/Flyer_03_05_2026.pdf" target="_blank">Download and share the flyer.</a></span>
+            </div>
+          </li>
+        </ul>
+      </section>
 
-      <ul class="concern-list">
-        <li><strong>Traffic &amp; Pedestrian Safety</strong> &ndash; Proposed access point via Acadia Ct. would increase traffic volumes fivefold on Acadia Drive, endangering residents on foot and bicycle. Traffic from Acadia Drive empties out onto major pedestrian and bike junctions at Everglade and Colony Drives, used by community members and children communiting to three schools located blocks away. </li>
+      <!-- Latest Updates -->
+      <section id="updates" class="card">
+        <div class="card-header">
+          <h3>Latest Updates</h3>
+        </div>
+        <ul class="updates-list">
+          <li>
+            <span class="update-date">Mar 10, 2026</span>
+            <div class="update-title">Update on Meeting and Petition Drive</div>
+            <div class="update-body">
+              <p>Approximately 100 people showed up! The positives included the Alder and Mayor's commitments, concessions, or promises that:</p>
+              <ul>
+                <li>They will oppose traffic onto Acadia</li>
+                <li>They will oppose the size of the project</li>
+                <li>They think the escalator clause is flawed, wrong, and should not be used and is purely subjective (this gives us potential legal arguments).</li>
+              </ul>
+              <p>The other positives were the obvious emotions in the room, the incredible turn out, and the near universal opposition to traffic on Acadia and support for a reasonable and appropriate development.</p>
+              <p>The Mayor and Alder opened by conceding to and agreeing with most of our objections up front. Although that is promising, neither the Mayor nor the alder make the final decision and we have no real information on what the planning department is thinking or saying. Acadia access could still be on the table and a large project is certainly still in the works. This is the time to keep pushing for reasonable and appropriate limitations on development on Gammon.</p>
+              <p>Next steps for you to take:</p>
+              <ol>
+                <li>Sign the petition we passed around last night, if we missed you or you were not able to attend the meeting. The following times are set aside for you to stop by Ann's house at 209 Acadia: Thursday 4:00&ndash;7pm and Saturday 10&ndash;12. If these times don't work, please contact her and set up another time: <a href="mailto:aewilson235@gmail.com">aewilson235@gmail.com</a>.</li>
+                <li>Email the Alder and City Planning with focused, well-reasoned concerns: <a href="mailto:pccomments@cityofmadison.com">pccomments@cityofmadison.com</a> and <a href="mailto:district19@cityofmadison.com">district19@cityofmadison.com</a>. See our website for more content and contact information: acadiaunited.org</li>
+                <li>Email the Mayor and reference her invitation to email her and make specific points about the promises in the meeting. We should focus on the positives and thank her for taking the time to listen, explain, and make time to hear our concerns. Her email is <a href="mailto:mayor@cityofmadison.com">mayor@cityofmadison.com</a>. Email topics might include:
+                  <ul>
+                    <li>I was encouraged by your commitment to not allow traffic onto Acadia and to assure the project is reasonable size. Please note that this won't alleviate overflow parking for those not wanting to pay for parking on site or visitors using Acadia as a parking lot. Traffic and safety concerns will still be an issue.</li>
+                    <li>I agree with you that the &ldquo;escalator clause&rdquo; should be abolished and should not be used for this project.</li>
+                    <li>Your goals of increasing affordable home ownership will make the city better. Adding high priced rentals does not work towards that goal and likely creates fewer ownership opportunities.</li>
+                    <li>Thank you for listening to us and supporting our community.</li>
+                  </ul>
+                </li>
+              </ol>
+              <p>And, thank you all for your support in helping to shape a better alternative for our community. Someone asked me how many people are on this email &mdash; we are 104 strong and counting!!</p>
+            </div>
+          </li>
+        </ul>
+      </section>
 
-        <li><strong>Scale and Neighborhood Fit</strong> &ndash; Because the development site sits at a significantly higher
-        elevation than Acadia Drive, a 3-story structure will loom over existing single-family
-        homes like a four to five story building. We request that the height &quot;step down&quot; to 1- 2
-        stories or less on the side facing our residences to maintain consistency with our SR-C1
-        neighborhood.</li>
+    </div><!-- /main-col -->
 
-        <li><strong>Density Reduction</strong> &ndash; The proposed 96 units are too dense for a site that must transition
-        into a quiet, suburban residential area. We want the City favor a smaller-scale project
-        that prioritizes safety and character over maximum density.</li>
+    <!-- Sidebar -->
+    <aside class="sidebar-col" id="contact">
 
+      <div class="sidebar-card">
+        <div class="card-header">
+          <h3>Contact Us</h3>
+        </div>
 
-
-      </ul>
-<!-- 
-      <p class="concern-closing">
-        We are asking the city to pause the approval process, commission
-        independent safety reviews, and hold a proper public hearing before
-        any permits are issued.
-      </p> -->
-    </section>
-
-    <!-- Take Action -->
-    <section class="card">
-      <div class="card-header">
-
-        <h3>Take Action</h3>
-      </div>
-
-      <ul class="action-list">
-        <li class="action-item">
-          <div class="action-num">1</div>
-          <div class="action-body">
-            <a href="mailto:acadiaunited@gmail.com">Join the Mailing List</a>
-            <span>Contact us to get email notification of future meetings and updates from our listserv. The email list is private and only used for community updates.</span>
-          </div>
-        </li>
-        <li class="action-item">
-          <div class="action-num">2</div>
-          <div class="action-body">
-            <a href="#updates">Attend the Parkwood Hills Annual Meeting</a>
-            <span>Monday, March 9th, Alderman John Guequierre and Mayor Satya Rhodes will be giving a 20-minute update on District 19, including proposals for the 117 N Gammon project. <strong>6:00-8:00 pm at John Muir Elementary School </strong></span>
-          </div>
-        </li>
-        <li class="action-item">
-          <div class="action-num">3</div>
-          <div class="action-body">
-            <a href="#updates">Contact the Planning Commission and our Alder</a>
-            <span>We are asking everyone to take a few minutes to email the Plan Commission (pccomments@cityofmadison.com) and our Alder (district19@cityofmadison.com) to protect our neighborhood safety and character. The planning process moves quickly, so we encourage you to act promptly. Make sure your Subject includes "117 N Gammon Project."  <a href="./docs/SampleEmail.docx">View a sample email template</a></span>
-          </div>
-        </li>
-        <li class="action-item">
-          <div class="action-num">4</div>
-          <div class="action-body">
-            <a href="#">Spread the word</a>
-            <span>Tell your neighbors. The more voices we have, the more the city listens. <a href="./docs/Flyer_03_05_2026.pdf" target="_blank">Download and share the flyer</a></span>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Latest Updates -->
-    <section id="updates" class="card">
-      <div class="card-header">
-
-        <h3>Latest Updates</h3>
-      </div>
-
-      <ul class="updates-list">
-        <li>
-          <span class="update-date">Mar 9, 2026</span>
-          <div class="update-title">Parkwood Hills Annual Meeting</div>
-          <p class="update-body">
-<span>Join us this Monday, March 9, 6:00 pm at John Muir School. This is the <a href="https://mailchi.mp/6cbde9094092/parkwood-enews-2-26-18254710">Parkwood Hills Community Association annual meeting</a>. The meeting will begin with a 20-minute update that will include discussion of the 117 N. Gammon Rd. project with Alderman John Guequierre AND Mayor Satya Rhodes-Conway. This is a critical opportunity to show the Mayor our neighborhood's unified concern.</span>
-          </div>
-          </p>
-        </li>
-
-
-        <!-- <li>
-          <span class="update-date">Feb 26, 2026</span>
-          <div class="update-title">Alder Meeting</div>
-          <p class="update-body">
-            Join us at 6:30 pm. Contact
-            <a href="mailto:acadiaunited@gmail.com">acadiaunited@gmail.com</a>
-            for location and details.
-          </p>
-        </li>
-
-        <li>
-          <span class="update-date">February 2026</span>
-          <div class="update-title">Acadia United Launches Community Website</div>
-          <p class="update-body">
-            We've created this site to keep neighbors informed and to provide a
-            central place for resources and action steps. More updates to follow
-            soon.
-          </p>
-        </li> -->
-      </ul>
-    </section>
-
-
-
-    <!-- Contact -->
-    <section id="contact" class="card">
-      <div class="card-header">
-
-        <h3>Contact Us</h3>
-      </div>
-
-      <p class="contact-intro">
-        Questions, media inquiries, or want to get involved? Reach us below.
-      </p>
-
-      <div class="contact-rows">
-        <div class="contact-row">
-          <span class="contact-label">Email</span>
-          <div class="contact-value">
+        <div class="sidebar-contact-row">
+          <div class="sidebar-contact-label">General Email</div>
+          <div class="sidebar-contact-value">
             <a href="mailto:acadiaunited@gmail.com">acadiaunited@gmail.com</a>
           </div>
         </div>
 
-
-
-        <div class="contact-row">
-          <span class="contact-label">Acadia United Committee</span>
-          <div style="display:flex;flex-direction:column;gap:0.25rem;">
-            <div class="contact-value"><a href="mailto:aewilson235@gmail.com">Ann Wilson</a></div>
-            <div class="contact-value"><a href="mailto:peter@homesteadtitle.net">Pete Zarov</a></div>
-            <div class="contact-value"><a href="mailto:bcshelley@gmail.com">Brandon Shelley</a></div>
-            <div class="contact-value"><a href="mailto:cecowles@gmail.com">Charles Cowles</a></div>
-            <div class="contact-value"><a href="mailto:jbaintakahashi@gmail.com">Jennifer Takahashi</a></div>
-            <div class="contact-value"><a href="mailto:joejsplinter@gmail.com">Joe Splinter</a></div>
-            <div class="contact-value"><a href="mailto:mark.d.blumenfeld@gmail.com">Mark Blumenthal</a></div>
-            <div class="contact-value"><a href="mailto:mrtaylor01@charter.net">Bob Taylor</a></div>
-          </div>
+        <div class="sidebar-contact-row">
+          <div class="sidebar-contact-label">Committee</div>
+          <ul class="sidebar-name-list">
+            <li><a href="mailto:aewilson235@gmail.com">Ann Wilson</a></li>
+            <li><a href="mailto:peter@homesteadtitle.net">Pete Zarov</a></li>
+            <li><a href="mailto:bcshelley@gmail.com">Brandon Shelley</a></li>
+            <li><a href="mailto:cecowles@gmail.com">Charles Cowles</a></li>
+            <li><a href="mailto:jbaintakahashi@gmail.com">Jennifer Takahashi</a></li>
+            <li><a href="mailto:joejsplinter@gmail.com">Joe Splinter</a></li>
+            <li><a href="mailto:mark.d.blumenfeld@gmail.com">Mark Blumenthal</a></li>
+            <li><a href="mailto:mrtaylor01@charter.net">Bob Taylor</a></li>
+          </ul>
         </div>
 
       </div>
 
+    </aside>
 
-    </section>
-
-  </main>
+  </div><!-- /page-inner -->
 
   <!-- ── Footer ── -->
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
         <h4>Acadia United</h4>
-        <p>
-          A community coalition of Parkwood Hills residents advocating for safe,
-          responsible development at 117 N Gammon Rd and beyond.
-        </p>
-      </div>
-      <div class="footer-links">
-
+        <p>A community coalition of Parkwood Hills residents advocating for safe, responsible development at 117 N Gammon Rd and beyond.</p>
       </div>
     </div>
-
   </footer>
 
 </body>
